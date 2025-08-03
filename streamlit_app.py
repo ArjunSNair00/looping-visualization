@@ -7,3 +7,13 @@ limit = st.slider("Loop up to the chosen limit", 1, 20, value=10)
 # Loop up to the chosen limit
 for i in range(limit):
     st.write(f"Value of :blue[***i***]: {i}")
+
+st.title("Pandas DataFrame Visualization")
+
+import pandas as pd
+df = pd.DataFrame({
+  'first column': [1, 2, 3, 4],
+  'second column': [10, 20, 30, 40]
+})
+
+df
