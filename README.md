@@ -4,7 +4,7 @@ Basic for loop visualization using streamlit and python ...
 
 ## Demo App
 
-[![Streamlit App](https://for-loop-visualization.streamlit.app/)]
+[![Streamlit App](https://for-loop-visualization.streamlit.app/)
 
 ## GitHub Codespaces
 
