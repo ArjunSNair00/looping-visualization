@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import numpy as np
 
 st.image(os.path.join(os.getcwd(),"assets","images","loop.png"),width=80)
 st.title("For loop visualization")
@@ -34,8 +35,8 @@ st.title("Pandas DataFrame Visualization")
 
 import pandas as pd
 df = pd.DataFrame({
-  'first column': [1, 10, 3, 4],
-  'second column': [10, 20, 30, 40]
+  'col1': [1, 10, 3, 4],
+  'col2': [10, 20, 30, 40]
 })
 
 #also use just df
@@ -45,11 +46,19 @@ df2=st.data_editor(df)
 
 
 #metrics
+col1mean = np.mean(df2['col1'])
+col2mean = np.mean(df2['col2'])
+col1median = np.median(df2['col1'])
+col2median = np.median(df2['col2'])
 col1, col2=st.columns(2)
 with col1:
   st.metric(label=":violet[***Number of records:***] ",value=len(df2))
+  st.metric(label="The mean of ':violet[***col1***]' is:",value=col1mean)
+  st.metric(label="The median of ':violet[***col1***]' is:",value=col1median)
 with col2:
   st.metric(label=":violet[***Number of features:***] ",value=len(df2.columns))
+  st.metric(label="The mean of ':violet[***col2***]' is:",value=col2mean)
+  st.metric(label="The median of ':violet[***col2***]' is:",value=col2median)
 
 st.divider()
 st.subheader("Using JSON")
@@ -89,7 +98,6 @@ st.markdown("This is **_Markdown_**")
 
 
 #data visualization
-import numpy as np
 st.subheader("Data Visualization")
 scatter_data=pd.DataFrame({'x':np.random.randn(100),'y':np.random.randn(100)})
 st.scatter_chart(scatter_data)
